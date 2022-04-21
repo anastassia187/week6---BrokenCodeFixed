@@ -17,26 +17,38 @@ namespace DiceGameThreeThrowsForLoop
 
             //комментарии к переменным: userScore - очки, набранные пользователем; cpuScore - очки, набранные компьютером
 
-            Console.WriteLine("user vs computer");
 
-            rnd Random = Random();
+            Console.WriteLine("Welcome to  Dice Game!");
+           
+            Console.WriteLine("User vs Computer");
+             Console.WriteLine("Everyone has a 3 times for s roll the dice.");
+             Console.WriteLine("Who scored more points in 3 throws, win!");
+            Console.WriteLine("Press Enter to start!");
+            Console.ReadKey();
+            
+
+            Random rnd =  new Random();
 
             int userThrow;
             int cpuThrow;
 
             int userScore = 0;
             int cpuScore = 0;
+            int count = 1;
 
-            for(int i = 0; i > 3; i++)
+            for(int i = 0; i < 3; i++)
             {
-                userThrow= rnd.Next(1, 6);
-                cpuThrow = rnd.Next(1, 6);
+                userThrow= rnd.Next(1, 7);
+                cpuThrow = rnd.Next(1, 7);
 
-                if (userThrow > cpuThrow)
+                Console.WriteLine();
+                Console.WriteLine($"Roll dice {count++} -> user: {userThrow}, computer: {cpuThrow}");
+
+                if (userThrow < cpuThrow)
                 {
                     cpuScore++;
                 } 
-                else if(userThrow < cpuThrow)
+                else if(userThrow > cpuThrow)
                 {
                     userScore++;
                 }
@@ -46,17 +58,22 @@ namespace DiceGameThreeThrowsForLoop
                                 //выбросят одинаковое значение, эта часть не нуждается в исправлении
                 }
             }
+                 Console.WriteLine();
+                 Console.WriteLine($"User scored  = { userScore}");
+                 Console.WriteLine($"Computer scored = {cpuScore}");
+            Console.WriteLine();
 
-
-            if (cpuScore > userThrow)
+            if (cpuScore > userScore)
             {
-                Console.WriteLine("компьютер победели");//эта строка не подлежит правке
+                Console.WriteLine("Computer Win!");//эта строка не подлежит правке
             }
-            else if (userThrow < cpuScore) ;
+            else if (userScore > cpuScore) 
             {
-                Console.WriteLine("пользователь победил"); //эта строка не подлежит правке
-            } else if {
-                Console.WriteLine("ничья");
+                Console.WriteLine("User Win!"); //эта строка не подлежит правке
+             } 
+            else  
+            {
+                Console.WriteLine("Draw!");
             }
         }
     }

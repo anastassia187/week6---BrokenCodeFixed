@@ -18,27 +18,49 @@ namespace DiceGame
             //комментарии к переменным: userThrow - бросок пользователем; cpuScore - бросок компьютера;
 
 
-            Console.WriteLine("user vs computer");
+            Console.WriteLine("User vs Computer");
+            Console.WriteLine("Start Dice Game!Press Enter! ");
+            Console.ReadKey();
+            Random rnd = new Random();
 
-            rnd Random = Random();
+            int userThrow;
+            int cpuThrow;
+            int userScore = 0;
+            int cpuScore = 0;
 
-            char userThrow = rnd.Next(1, 6);
-            string cpuThrow = rnd.Next(1, 6);
-
-            if (userThrow > cpuThrow) ;
+            for (int i = 0; i < 1; i++)
             {
-                Console.WriteLine("Победил пользователь");
-            }
-            
-            if(userThrow >= cpuThrow)
-            {
-                Console.WriteLine("Победил пользователь");
-            }
-            else if(userThrow = cpuThrow)
-            {
-                Console.WriteLine("Ничья");
-            }
+                Console.WriteLine("Computer roll the dice!");
+                cpuThrow = rnd.Next(1, 7);
+                Console.WriteLine("Computer score " + cpuThrow);
 
+                Console.WriteLine(" ... ");
+
+                userThrow = rnd.Next(1, 7);
+               
+                Console.WriteLine("You turn!Press Enter!");
+                Console.ReadKey();
+                Console.WriteLine("You roll the dice!");
+                Console.WriteLine("Your score " + userThrow);
+                Console.WriteLine();
+
+                if (userThrow > cpuThrow)
+                {
+                    userScore++;
+                    Console.WriteLine("You Win!");
+                }
+                else if (userThrow < cpuThrow)
+                {
+                    cpuScore++;
+                    Console.WriteLine("Computer Win!");
+                }
+                else
+                {
+                    Console.WriteLine("Draw!");
+                }
+
+                Console.WriteLine("Try again!");
+            }
         }
     }
 }
